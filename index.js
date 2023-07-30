@@ -12,9 +12,12 @@ Do you need a return value? */
 
 function flatten(arr){
     var newArr = [];
+
     for(var i = 0; i < arr.length; i++){
         if(Array.isArray(arr[i])){
+
             for(var j = 0; j < arr[i].length; j++){
+
                 newArr.push(arr[i][j]);
             }
         }
@@ -22,6 +25,7 @@ function flatten(arr){
             newArr.push(arr[i]);
         }
     }
+
     return newArr;
 }
 
@@ -53,11 +57,14 @@ Fourth: eliminate any second (inner) loop. */
 
 function removeDuplicates(arr){
     var newArr = [];
+
     for(var i = 0; i < arr.length; i++){
         if(newArr.includes(arr[i]) == false){
+
             newArr.push(arr[i]);
         }
     }
+
     return newArr;
 }
 
@@ -82,3 +89,39 @@ Create a function that, given an array, returns the most frequent value in the a
 Second: memory constraints prevent your using a new array. 
 How does this affect your solution?
  */
+
+function mode(arr){
+    var count = 0;
+    var mode = 0;
+
+    for(var i = 0; i < arr.length; i++){
+        var tempCount = 0;
+
+        for(var j = 0; j < arr.length; j++){
+            if(arr[i] == arr[j]){
+                tempCount++;
+            }
+        }
+
+        if(tempCount > count){
+            count = tempCount;
+            mode = arr[i];
+        }
+    }
+
+    return mode;
+
+}
+
+//Example:
+console.log(mode([1,2,1,3,4,2]));
+
+//We set a count and mode variable to 0.
+//We loop through the array.
+//We set a tempCount variable to 0.
+//We loop through the array again.
+//If the value of the first loop is equal to the value of the second loop, we increment tempCount.
+//If tempCount is greater than count, we set count equal to tempCount and mode equal to the value of the first loop.
+//We return mode.
+
+//#########################################################################################################
