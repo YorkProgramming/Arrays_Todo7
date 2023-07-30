@@ -50,3 +50,23 @@ Ex.: [1,2,1,3,4,2] could become [1,2,4,3].
 Third: make it in-place and stable.
 
 Fourth: eliminate any second (inner) loop. */
+
+function removeDuplicates(arr){
+    var newArr = [];
+    for(var i = 0; i < arr.length; i++){
+        if(newArr.includes(arr[i]) == false){
+            newArr.push(arr[i]);
+        }
+    }
+    return newArr;
+}
+
+//Example:
+console.log(removeDuplicates([1,2,1,3,4,2]));
+
+//We set a new array to push the values into.
+//We loop through the array.
+//If the value is not in the new array, we push that value into the new array.
+//We return the new array.
+
+//#########################################################################################################
